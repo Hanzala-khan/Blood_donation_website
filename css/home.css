@@ -6,6 +6,7 @@
     --secondary-color: #b71c1c;
     --accent-color: #414042;
     --2nd-accent-color: #d50000;
+    --impt-color: tan;
     /* HEADING FONT SIZES */
     --hero-headings: 68px;
     /* SUB HEADING SIZE */
@@ -20,6 +21,8 @@
     --body-text: 16px;
     /* small text sizes */
     --small-text: 12px;
+    /****************      Brand colors       **********************/
+    --brand-dark-color: #000000;
 }
 
 /* UNIVERSAL SETTINGS */
@@ -33,6 +36,8 @@
 body {
     background-color: var(--primary-color);
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* MAIN SECTION STYLING */
@@ -43,15 +48,16 @@ main {
 /* HEADER STYLING */
 header {
     padding-top: 45px;
-    display: flow-root;
+    display: flow-root; 
     /* border: 2px solid blue; */
     /* box-sizing: border-box; */
+    margin: 0 30px;
 }
 
 /* LOGO TITLE STYLING */
 div.logo {
     float: left;
-    margin-right: 190px;
+    /*    margin-right: 190px;*/
     /* border: 2px solid white; */
 }
 
@@ -64,12 +70,12 @@ div.logo>h2 {
 /* NAVIGATION STYLING */
 nav {
     float: left;
-    padding: 14px 0;
+    padding: 14px 0 14px 350px;
     text-transform: uppercase;
 }
 
 /* UL AND LI STYLING */
-ul {
+nav ul {
     list-style: none;
     padding-inline-start: 0;
 }
@@ -93,6 +99,72 @@ nav ul li a:hover {
     color: wheat;
 }
 
+/****************    NAVIGATION FOR MOBILE   **********************/
+div.mobile_nav_container {
+    position: relative;
+    /*    border: 2px solid blue;*/
+    top: -35px;
+    right: 0px;
+}
+
+div.mobile_nav>label {
+    position: absolute;
+    z-index: 1;
+    right: 20px;
+    top: 7px;
+    font-size: 30px;
+    color: var(--secondary-color);
+}
+
+div.mobile_nav input[type="checkbox"]:checked~label>i {
+    color: var(--primary-color);
+}
+
+div.mobile_nav>input[type="checkbox"] {
+    position: absolute;
+    top: -70px;
+    right: 0;
+}
+
+div.nav_links {
+    width: 250px;
+    height: 100vh;
+    padding: 20px 30px;
+    border: 2px solid brown;
+    background-color: var(--secondary-color);
+    text-align: center;
+    position: absolute;
+    right: -280px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;   
+}
+
+div.nav_links ul {
+    list-style: none;
+    padding-top: 40px;
+}
+
+div.nav_links ul>li {
+    margin-bottom: 12px;
+}
+
+div.nav_links ul>li>a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-family: var(--primary-font);
+    width: 100%;
+    display: inline-block;
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+div.nav_links>ul>li>a>i {
+    padding-left: 5px;
+}
+
 /* STYLING DONATE BUTTON */
 div.donate_btn {
     float: right;
@@ -110,7 +182,7 @@ div.donate_btn>span {
 
 /* STYLING SPACING DIV */
 div.spacing_for_searchbar {
-    clear: left;
+    clear: both;
     margin-bottom: 20px;
 }
 
@@ -246,7 +318,7 @@ div.cards:hover {
 }
 
 div.card_2 {
-    margin: 0 21.375px;
+    margin: 0 1.5%;
 }
 
 /* STYLING UPPER PART OF CARD */
@@ -312,6 +384,10 @@ div.location_part {
     display: flow-root;
 }
 
+div.location_alignment {
+    display: flow-root;
+}
+
 div.icon_left_float {
     float: left;
 }
@@ -362,12 +438,11 @@ h1.testimonial_title {
     font-size: var(--hero-headings);
     font-family: var(--primary-font);
     color: var(--accent-color);
+    padding: 0 3px;
+    border: 3px solid var(--accent-color);
+    display: inline-block;
 }
 
-h1.testimonial_title>span {
-    border: 3px solid var(--accent-color);
-    padding: 0 3px;
-}
 
 div.testimonial_quotation {
     padding: 90px 0 0;
@@ -390,12 +465,12 @@ div.testimonial_quotation span:nth-child(odd)>i {
     color: var(--secondary-color);
 }
 
-div.testimonial_quotation span:nth-child(3)>i {
+div.testimonial_quotation span:nth-child(3) {
     margin-left: 520px;
 }
 
 div.testimonial_image_right_part {
-    float: right;
+    float: left;
     width: 50%;
     text-align: center;
     min-height: 100%;
@@ -470,18 +545,18 @@ div.review_rigt_part>p {
 
 /* Applying Spaces B/W Review Cards */
 div.r_card_2 {
-    margin: 0 21.315px;
+    margin: 0 1.5%;
 }
 
 /**********************  STYLING FOOTER SECTION   ******************************/
 
 footer {
     background-color: var(--secondary-color);
-    padding: 40px 80px;
 }
 
 div.footer_container {
     display: flow-root;
+    padding: 40px 80px 20px;
 }
 
 /*  APPLYOING FLOAT --> PROPERTY TO EACH OF THE FOOTER COLUMN  */
@@ -553,8 +628,8 @@ div.newsletter_info>input {
 }
 
 div.newsletter_info>input:valid {
-  background-color: greenyellow;
-  color:var(--2nd-accent-color);
+    background-color: greenyellow;
+    color: var(--2nd-accent-color);
 }
 
 ::placeholder {
@@ -585,41 +660,388 @@ div.newsletter_info>button>span {
 div.contact_info_section {
     width: 29%;
     padding: 60px 0 60px 80px;
-/*    border: 2px solid wheat;*/
+    /*    border: 2px solid wheat;*/
 }
 
-div.contact_box > h3 {
-  font-family: var(--secondary-font);
-  color: whitesmoke;
-  font-family: var(--primary-font);
-  padding: 15px 0 15px 0;
-}
-[class*="c_box"]{
-  display: inline-block;
-  padding: 15px 30px;
-  border: 2px solid var(--primary-color);
-  font-family: var(--primary-font);
-  border-radius: 5px;
+div.contact_box>h3 {
+    font-family: var(--secondary-font);
+    color: whitesmoke;
+    font-family: var(--primary-font);
+    padding: 15px 0 15px 0;
 }
 
-[class*="c_box"] span:nth-child(1){
-  font-size: var(--small-text);
-  color:var(--primary-color);
-  font-weight: bold;
-} 
+[class*="c_box"] {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid var(--primary-color);
+    font-family: var(--primary-font);
+    border-radius: 5px;
+}
 
-[class*="c_box"] span:nth-child(2){
-  font-size: var(--body-text);
-  color: whitesmoke;
-  padding-left: 10px;
+/* Applying HOVER EFFECT */
+[class*="c_box"]:hover {
+    background-color: var(--2nd-accent-color);
+}
+
+[class*="c_box"] span:nth-child(1) {
+    font-size: var(--small-text);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+[class*="c_box"] span:nth-child(2) {
+    font-size: var(--body-text);
+    color: whitesmoke;
+    padding-left: 10px;
 }
 
 
 /* STYLING FOR 3RD COLUMN */
 div.inportant_pages_links {
     width: 29%;
+    padding: 60px 0 60px 60px;
 }
 
+div.inportant_pages_links>h3 {
+    padding: 15px 0 10px 0;
+    font-family: var(--primary-font);
+    color: whitesmoke;
+}
+
+div.row_1 {
+    padding: 10px 0 15px 0;
+}
+
+div.row_2 {
+    padding-bottom: 30px;
+}
+
+div.page_links>div.page_button {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background: var(--2nd-accent-color);
+    cursor: pointer;
+}
+
+div.page_button>a {
+    text-decoration: none;
+    color: white;
+    font-family: var(--primary-font);
+    font-size: var(--small-text);
+    font-weight: bold;
+    padding: 0 10px 0 0;
+}
+
+div.page_button>span>i {
+    font-size: 16px;
+    color: white;
+}
+
+/* STYLING SOCIAL MEDIA ICONS ROW */
+div.social_media_icons {
+    padding: 20px 0;
+}
+
+div.social_media_icons>h3 {
+    font-family: var(--primary-font);
+    color: whitesmoke;
+    padding-bottom: 20px;
+}
+
+div.icons_row {
+    padding: 10px 0;
+}
+
+div.icons_row>span>i {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+div.icons_row>span>i:hover {
+    color: var(--facebook-color);
+}
+
+div.icons_row>span {
+    padding-right: 40px;
+}
+
+/* COPYRIGHT SECTION  */
+div.copyright_text {
+    text-align: center;
+    padding: 20px 0;
+}
+
+div.copyright_text>p {
+    color: var(--primary-color);
+    font-size: var(--body-text);
+    font-family: var(--primary-font);
+}
+
+div.copyright_text>p>span {
+    font-weight: bolder;
+    color: var(--impt-color);
+}
+
+/************   APPLYING MEDIA QUIRIES   ******************/
+/* applying media query for size below 1350px  */
+@media only screen and (max-width: 1350px) {
+    header nav {
+        padding: 14px 0 14px 150px;
+    }
+
+    /* ADJUSTING FOR REVIEW CARDS */
+    div.review_left_part {
+        float: none;
+        width: 100%;
+        text-align: center;
+        padding: 0 0 10px;
+    }
+
+    div.review_left_part>p {
+        display: block;
+    }
+
+    div.review_rigt_part {
+        float: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0 0 10px;
+    }
+
+    /* ADJUSTING FOR FOOTER SECTION */
+    div.contact_info_section,
+    div.inportant_pages_links {
+        padding: 60px 0 60px 30px;
+    }
+
+    [class^="c_"] {
+        padding: 15px 15px;
+    }
+
+    /* ADJUSTING SOCIAL MEDIA ICONS */
+    div.icons_row span {
+        padding-right: 20px;
+    }
+
+    div.icons_row span>i {
+        font-size: 25px;
+    }
+}
+
+/* APPLYINF STYLE FOR SIZE UNDER 1270PX */
+
+@media only screen and (max-width:1270px) {
+    div.number_of_card {
+        padding: 120px 0 30px 0;
+    }
+
+    div.location_part {
+        font-size: 14px;
+    }
+}
+
+/* applying media query for size below 1150px  */
+
+@media only screen and (max-width: 1150px) {
+
+
+    /*  applying style for logo  */
+    div.logo>h2 {
+        font-size: var(--extrasmall-headings);
+        padding-top: 7px;
+    }
+
+    /* stylinf navbar for this size */
+    header nav {
+        padding: 14px 0 14px 50px;
+    }
+
+    header nav>ul>li {
+        font-size: var(--small-text);
+    }
+
+    /* styling for donate button in navbar */
+    div.donate_btn>span {
+        font-size: var(--small-text);
+    }
+
+    /*  styling for HERO text area  */
+    div.hero_text_area>h1 {
+        font-size: var(--sub-heading);
+    }
+
+    /* STYLINF FOR EVETS SECTION */
+    div.number_of_card {
+        padding: 100px 0 30px 0;
+    }
+
+    /* MODIFIYING EVEENTS CARD WIDTH */
+    div.cards {
+        width: 48.5%;
+    }
+
+    div.card_3 {
+        margin-top: 15px;
+    }
+
+    /*  MODIFIYING FOOTER  */
+    div.footer_into_3 {
+        width: 50%;
+    }
+
+    div.contact_info_section {
+        padding: 60px 0 60px 80px
+    }
+
+    div.inportant_pages_links {
+        float: none;
+        clear: both;
+        padding: 60px 0 60px 0;
+    }
+}
+
+/* applying media query for size below 1108  */
+@media only screen and (max-width:1108px) {
+    main {
+        margin: 0 60px;
+    }
+
+    h1.testimonial_title {
+        font-size: var(--sub-heading);
+    }
+
+    div.testimonial_quotation>h2 {
+        font-size: var(--small-headings);
+    }
+
+    div.testimonial_quotation>span:nth-child(3) {
+        margin-left: 400px;
+    }
+
+    /*  MODIFYING FOOTER   */
+    div.footer_container {
+        padding: 40px 60px 20px;
+    }
+}
+
+/* APPLYINF STYLE FOR SIZE UNDER 1010PX  */
+@media only screen and (max-width:1010px) {
+
+    div.card_2 {
+        margin: 0 0 0 1.5%;
+    }
+
+    div.testimonial_image_right_part {
+        text-align: right;
+    }
+
+    /* APPLYING STYLE FOR REVIEW CARD */
+    div.review_card {
+        width: 48.5%;
+    }
+
+    div.r_card_3 {
+        margin-top: 10px;
+    }
+}
+
+/* APPLYING STYLE FOR SIZE UNDER 900PX */
+@media only screen and (max-width: 900px) {
+    div.testimonial_quotation span:nth-child(3) {
+        margin-left: 220px;
+    }
+
+    div.testimonial_image_right_part {
+        text-align: center;
+        padding-top: 70px;
+    }
+
+    /*  FOOTER MODIFYING  */
+    div.newsletter_info input[type="email"] {
+        width: 50%;
+    }
+}
+
+/* APPLYING MEDIA QUERY FOR SIZE UNDER 835PX */
+@media only screen and (max-width: 886px) {
+
+    header>nav {
+        padding-left: 30px;
+    }
+
+    div.donate_btn {
+        padding: 13px 0 0;
+    }
+
+    div.location_part {
+        font-size: var(--small-text);
+    }
+}
+
+div.mobile_nav div.nav_links {
+    display: none;
+}
+
+/* APPLYING DOUBEL MEDIA QUERIES  */
+@media only screen and (min-width: 802px) {
+
+    div.mobile_nav label,
+    div.mobile_nav input[type="checkbox"] {
+        display: none;
+    }
+}
+
+/* SIZES FOR BELOW 801PX */
+@media only screen and (max-width: 801px) {
+
+    /*  MAIN MODIFICATION */
+    main {
+        margin: 0 20px;
+    }
+
+    header>nav {
+        display: none;
+    }
+
+    div.donate_btn {
+        float: none;
+        clear: both;
+        margin-left: 30%;
+        display: inline-block;
+    }
+
+    /*   MOBILE NAV MODIFICATION */
+    /*div.mobile_nav label,
+    div.mobile_nav input[type="checkbox"]{
+      display: block;
+    }*/
+    div.mobile_nav input[type="checkbox"]:checked~div.nav_links {
+        display: block;
+        right: 0px;
+    }
+
+    /*  FOOTER MODIFICATION  */
+
+    div.footer_container {
+        padding: 40px 20px 20px;
+    }
+
+}
+
+/* APPLYING STYLES FOR SIZES BELOW 760PX */
+@media only screen and (max-width:760px) {
+    div.footer_into_3 {
+        float: none;
+        width: 100%;
+    }
+
+    div.contact_info_section,
+    div.inportant_pages_links {
+        padding: 30px 0;
+    }
+}
 
 /*div.location_part>span {}*/
 /*div.location_part>span>i {
